@@ -1,0 +1,15 @@
+{
+  "name": "learning_javascript",
+  "version": "1.0.0",
+  "description": "codeacdemy Pro project",
+  "main": "Rock_Paper_Scissors.js",
+  "dependencies": {
+    "eslint": "^4.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
