@@ -8,17 +8,17 @@ Every time the outer for loop runs once, the inner for loop will run completely.
 
 These are called nested for loops and we can use them to check to see if any of your vacation spots match your friend's spots.*/
 let myPlaces = ['Beijing', 'HongKong', 'Shanghai'];
-let friendPlaces =['Beijing','Guiyang','Chengdu'];
-for(let myPlacesIndex = 0;myPlacesIndex < myPlaces.length; myPlacesIndex++){
-  console.log(myPlaces[myPlacesIndex]);
+let friendPlaces = ['Beijing', 'Guiyang', 'Chengdu'];
+for (let myPlacesIndex = 0; myPlacesIndex < myPlaces.length; myPlacesIndex++) {
+	console.log(myPlaces[myPlacesIndex]);
 
-  for(let friendPlacesIndex =0; friendPlacesIndex < friendPlaces.length;friendPlacesIndex++){
-    if(myPlacesIndex===friendPlacesIndex){
-      if(myPlaces[myPlacesIndex]===friendPlaces[friendPlacesIndex]){
-         console.log("we have same place, whcih is "+ myPlaces[myPlacesIndex])
-         }
-       // console.log(friendPlaces[friendPlacesIndex]);
-       }
-   // console.log(friendPlaces[friendPlacesIndex]+'8');
-  }
+	for (let friendPlacesIndex = 0; friendPlacesIndex < friendPlaces.length; friendPlacesIndex++) {
+		if (myPlacesIndex === friendPlacesIndex) {
+			if (myPlaces[myPlacesIndex] === friendPlaces[friendPlacesIndex]) {
+				console.log('we have same place, whcih is ' + myPlaces[myPlacesIndex]);
+			}
+			// console.log(friendPlaces[friendPlacesIndex]);
+		}
+		// console.log(friendPlaces[friendPlacesIndex]+'8');
+	}
 }
