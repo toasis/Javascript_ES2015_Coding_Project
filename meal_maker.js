@@ -1,38 +1,61 @@
 let menu = {
     _course: {
-        _appetizers: [],
-        _mains: [],
-        _dessets: [],
-        set appetizers(appetizerIn) {},
+        appetizers: [],
+        mains: [],
+        desserts: [],
+
         get appetizers() {
-            //return ...;
+            console.log(`The course includes${this._course.appetizers},`);
+            return this._course.appetizers,
         },
-        set mains(mainIn) {},
+
+        set appetizers(newAppetizers) {
+
+            if (typeof newAppetizers === 'string') {
+                this._course.appetizers = newAppetizers;
+            } else {
+                console.log(`Please change ${newAppetizers} to string`);
+            }
+
+        },
+
         get mains() {
-            //return ...;
+            console.log(`The course includes${this._course.mains},`);
+            return this._course.mains,
         },
-        set dessets(desertIn) {},
-        get deserts() {
-            // return ...;
-        }
+        set mains(newMains) {
+
+            if (typeof newMains === 'string') {
+                this._course.mains = newMains;
+            } else {
+                console.log(`Please change ${newMains} to string`);
+            }
+        },
+
+        get desserts() {
+            console.log(`The course includes${this._course.desserts},`);
+            return this._course.desserts,
+        },
+        set desserts(newDesserts) {
+
+            if (typeof newDesserts === 'string') {
+                this._course.desserts = newDesserts;
+            } else {
+                console.log(`Please change ${newDesserts} to string`);
+            }
+        },
+
     },
-    get courses() {
-        return {
-            appetizers: this._course._appetizers,
-            mains: this._course._mains,
-            deserts: this._course._dessets
-        };
-    },
-    addDishToCourse: function(courseName, dishName, dishPrice) {
-        let dish = {
-            name: dishName,
-            price: dishPrice
-        };
-        this._course[courseName].push(dish);
-    },
-    getRandomDishFromCourse: function(...) {
-        const dishes = this._courses[courseName];
-        const randomIndex = Math.floor(Math.random() * dishes.length);
-        // return a dish from `dishes` by using `randomIndex`
+get course(){
+    console.log(`The course includes${this._course},`);
+    return this._course,
+},
+set course(newCourse) {
+
+    if (typeof newCourse === 'string') {
+        this._course.course = newCourse;
+    } else {
+        console.log(`Please change ${newCourse} to string`);
     }
-};
+},
+}
