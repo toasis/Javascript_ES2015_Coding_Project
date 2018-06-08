@@ -4,10 +4,10 @@ let menu = {
         mains: [],
         desserts: [],
 
-        // get appetizers() {
-        //     console.log(`The course includes${this._course.appetizers},`);
-        //     return this._course.appetizers,
-        // },
+        get appetizers() {
+            console.log(`The course includes${this._course.appetizers},`);
+            return this._course.appetizers
+        },
 
         set appetizers(newAppetizers) {
 
@@ -21,10 +21,7 @@ let menu = {
 
         get mains() {
             console.log(`The course includes${this._course.mains},`);
-
-
-
-            return this._course.mains,
+            return this._course.mains
         },
         set mains(newMains) {
 
@@ -37,7 +34,7 @@ let menu = {
 
         get desserts() {
             console.log(`The course includes${this._course.desserts},`);
-            return this._course.desserts,
+            return this._course.desserts
         },
         set desserts(newDesserts) {
 
@@ -51,8 +48,8 @@ let menu = {
     },
     get course() {
         console.log(`The course includes${this._course},`);
-        return this._course,
-    }
+        return this._course
+    },
     set course(newCourse) {
 
         if (typeof newCourse === 'string') {
