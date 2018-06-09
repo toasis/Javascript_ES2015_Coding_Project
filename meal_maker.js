@@ -1,18 +1,18 @@
 let menu = {
-    _course: {
+    _courses: {
         appetizers: [],
         mains: [],
         desserts: [],
 
         get appetizers() {
-            console.log(`The course includes${this._course.appetizers},`);
-            return this._course.appetizers
+            console.log(`The courses includes${this._courses.appetizers},`);
+            return this._courses.appetizers
         },
 
         set appetizers(newAppetizers) {
 
             if (typeof newAppetizers === 'string') {
-                this._course.appetizers = newAppetizers;
+                this._courses.appetizers = newAppetizers;
             } else {
                 console.log(`Please change ${newAppetizers} to string`);
             }
@@ -20,42 +20,42 @@ let menu = {
         },
 
         get mains() {
-            console.log(`The course includes${this._course.mains},`);
-            return this._course.mains
+            console.log(`The courses includes${this._courses.mains},`);
+            return this._courses.mains
         },
         set mains(newMains) {
 
             if (typeof newMains === 'string') {
-                this._course.mains = newMains;
+                this._courses.mains = newMains;
             } else {
                 console.log(`Please change ${newMains} to string`);
             }
         },
 
         get desserts() {
-            console.log(`The course includes${this._course.desserts},`);
-            return this._course.desserts
+            console.log(`The courses includes${this._courses.desserts},`);
+            return this._courses.desserts
         },
         set desserts(newDesserts) {
 
             if (typeof newDesserts === 'string') {
-                this._course.desserts = newDesserts;
+                this._courses.desserts = newDesserts;
             } else {
                 console.log(`Please change ${newDesserts} to string`);
             }
         }
 
     },
-    get course() {
-        console.log(`The course includes${this._course},`);
-        return this._course
+    get courses() {
+        console.log(`The courses includes${this._courses},`);
+        return this._courses
     },
-    set course(newCourse) {
+    set courses(newCourses) {
 
-        if (typeof newCourse === 'string') {
-            this._course.course = newCourse;
+        if (typeof newCourses === 'string') {
+            this._courses.courses = newCourses;
         } else {
-            console.log(`Please change ${newCourse} to string`);
+            console.log(`Please change ${newCourses} to string`);
         }
     }
 }
