@@ -68,23 +68,23 @@ const team = {
       age: age
     };
 
-    this.players.push(player);
+    this._players.push(player);
   },
   //add game method
-addteam(opponent, teamPoints, opponentPoints) {
-  let team = {
-    opponent: opponent,
-    teamPoints: teamPoints,
-    opponentPoints: opponentPoints
-  };
+  addGame(opponent, teamPoints, opponentPoints) {
+    let game = {
+      opponent: opponent,
+      teamPoints: teamPoints,
+      opponentPoints: opponentPoints
+    };
 
-  this.games.push(game);
-},
+    this._games.push(game);
+  },
 
 };
 
 team.addPlayer('Steph', 'Curry', '28');
 team.addGame("Titans", 100, 98);
 console.log(team);
-
-
+console.log(team._players);
+console.log(team._games);
