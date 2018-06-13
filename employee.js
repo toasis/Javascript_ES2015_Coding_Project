@@ -1,5 +1,3 @@
-let salary = 100000;
-
 let payGrades = {
   entryLevel: {
     taxMultiplier: .05,
@@ -20,51 +18,48 @@ let payGrades = {
     maxSalary: 200000
   }
 };
-//在上述三个level key中间根据 salary 的情况执行不同的选择
-function getCadre() {
-  if (salary >= payGrades.entryLevel.minSalary && salary <= payGrades.entryLevel.maxSalary) {
-    return 'entryLevel';
-  } else if (salary >= payGrades.midLevel.minSalary && salary <= payGrades.midLevel.maxSalary) {
-    return 'midLevel';
-  } else return 'seniorLevel';
-}
 
-function calculateTax() {
-  return payGrades[getCadre()].taxMultiplier * salary;
-}
+let Employee = {
+  salary: 10000,
+  getCadre: () => {
+    if (this.salary >= payGrades.entryLevel.minSalary && this.salary <= payGrades.entryLevel.maxSalary) {
+      return 'entryLevel';
+    } else if (this.salary >= payGrades.midLevel.minSalary && this.salary <= payGrades.midLevel.maxSalary) {
+      return 'midLevel';
+    } else return 'seniorLevel';
+  },
 
-function getBenefits() {
-  return payGrades[getCadre()].benefits.join(', ');
-}
+  calculateTax: () => {
+    return payGrades[this.getCadre()].taxMultiplier * this.salary;
+  },
 
-function calculateBonus() {
-  return .02 * salary;
-}
-//退还资格reimbursementCosts是一个固定值，取决于每个人的 employeeBenefits有几项
-function reimbursementEligibility() {
-  let reimbursementCosts = {
-    health: 5000,
-    housing: 8000,
-    wellness: 6000,
-    gym: 12000
-  };
-  let totalBenefitsValue = 0;
-  let employeeBenefits = payGrades[getCadre()].benefits; //employeeBenefits也是一个数组
-  for (let i = 0; i < employeeBenefits.length; i++) {
-    totalBenefitsValue += reimbursementCosts[employeeBenefits[i]];
+  getBenefits: () => {
+    return payGrades[this.getCadre()].benefits.join(', ');
+  },
+
+  calculateBonus: () => {
+    return .02 * this.salary;
+  },
+
+  reimbursementEligibility: () => {
+    let reimbursementCosts = {
+      health: 5000,
+      housing: 8000,
+      wellness: 6000,
+      gym: 12000
+    };
+    let totalBenefitsValue = 0;
+    let employeeBenefits = payGrades[this.getCadre()].benefits;
+    for (let i = 0; i < employeeBenefits.length; i++) {
+      totalBenefitsValue += reimbursementCosts[employeeBenefits[i]];
+    }
+    return totalBenefitsValue;
   }
-  return totalBenefitsValue;
-}
+};
+Employee.getCadre();
+Employee.calculateBonus();
+Employee.calculateTax();
+Employee.getBenefits();
+Employee.reimbursementEligibility();
 
-function getEmployeeInformation(inputSalary) {
-  salary = inputSalary;
-  console.log('Cadre: ' + getCadre());
-  console.log('Tax: ' + calculateTax());
-  console.log('Benefits: ' + getBenefits());
-  console.log('Bonus: ' + calculateBonus());
-  console.log('Reimbursement Eligibility: ' + reimbursementEligibility() + '\n');
-}
-
-getEmployeeInformation(10000);
-getEmployeeInformation(50000);
-getEmployeeInformation(100000);
+//export default Employee;
