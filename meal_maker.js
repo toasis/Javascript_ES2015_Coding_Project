@@ -18,7 +18,6 @@ let menu = {
     },
 
     get mains() {
-      // console.log(`The courses includes${this._mains},`);
       return this._mains;
     },
     set mains(newMains) {
@@ -30,7 +29,6 @@ let menu = {
     },
 
     get desserts() {
-      // console.log(`The courses includes${this._desserts},`);
       return this._desserts;
     },
     set desserts(newDesserts) {
@@ -44,6 +42,7 @@ let menu = {
 
   /*  questions:
  question 1: The three functions below should exsit inside this object menu or outside?
+ answer 2: inside
  question 2: Is it possible to use an arrow function as one of key-value pairs of an object? if yes, how?
  answer2: Because arrow function is a function expression, it should not be in an object as its method.
  question 3: Is there any automatic way to write aan object's getter and setter?  Why they are necessary? They make the program much longer.
@@ -83,3 +82,4 @@ menu.addDishToCourse("appetizers", "bread_2", 6);
 menu.addDishToCourse("desserts", "cake-2", 1);
 menu.getRandomDishFromCourse("mains");
 console.log(menu.getRandomMeal());
+console.log(menu);
