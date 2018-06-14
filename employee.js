@@ -21,45 +21,51 @@ let payGrades = {
 
 let Employee = {
   salary: 10000,
-  getCadre: () => {
-    if (this.salary >= payGrades.entryLevel.minSalary && this.salary <= payGrades.entryLevel.maxSalary) {
-      return 'entryLevel';
-    } else if (this.salary >= payGrades.midLevel.minSalary && this.salary <= payGrades.midLevel.maxSalary) {
-      return 'midLevel';
-    } else return 'seniorLevel';
-  },
 
-  calculateTax: () => {
-    return payGrades[this.getCadre()].taxMultiplier * this.salary;
-  },
-
-  getBenefits: () => {
-    return payGrades[this.getCadre()].benefits.join(', ');
-  },
-
-  calculateBonus: () => {
-    return .02 * this.salary;
-  },
-
-  reimbursementEligibility: () => {
-    let reimbursementCosts = {
-      health: 5000,
-      housing: 8000,
-      wellness: 6000,
-      gym: 12000
-    };
-    let totalBenefitsValue = 0;
-    let employeeBenefits = payGrades[this.getCadre()].benefits;
-    for (let i = 0; i < employeeBenefits.length; i++) {
-      totalBenefitsValue += reimbursementCosts[employeeBenefits[i]];
-    }
-    return totalBenefitsValue;
-  }
 };
-Employee.getCadre();
-Employee.calculateBonus();
-Employee.calculateTax();
-Employee.getBenefits();
-Employee.reimbursementEligibility();
 
-//export default Employee;
+function getCadre() {
+
+  if (Employee.salary >= payGrades.entryLevel.minSalary && Employee.salary <= payGrades.entryLevel.maxSalary) {
+    return 'entryLevel';
+  } else if (Employee.salary >= payGrades.midLevel.minSalary && Employee.salary <= payGrades.midLevel.maxSalary) {
+    return 'midLevel';
+  } else return 'seniorLevel';
+}
+
+function calculateTax() {
+  return payGrades[getCadre()].taxMultiplier * Employee.salary;
+}
+
+function getBenefits() {
+  return payGrades[getCadre()].benefits.join(', ');
+}
+
+function calculateBonus() {
+  return .02 * Employee.salary;
+}
+
+function reimbursementEligibility() {
+  let reimbursementCosts = {
+    health: 5000,
+    housing: 8000,
+    wellness: 6000,
+    gym: 12000
+  };
+  let totalBenefitsValue = 0;
+  let employeeBenefits = payGrades[getCadre()].benefits;
+  for (let i = 0; i < employeeBenefits.length; i++) {
+    totalBenefitsValue += reimbursementCosts[employeeBenefits[i]];
+  }
+  return totalBenefitsValue;
+}
+
+export {
+  Employee,
+  getCadre as cadre,
+  calculateTax as tax,
+  getCadre as benefits,
+  calculateBonus as bonus,
+  reimbursementEligibility as reimbursement
+
+}
